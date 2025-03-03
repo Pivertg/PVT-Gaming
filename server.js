@@ -161,3 +161,28 @@ app.get("/api/admin/joueurs", verifyAdmin, async (req, res) => {
 app.listen(3000, () => {
     console.log("🚀 Serveur démarré sur http://localhost:3000");
 });
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+
+// Schéma Admin
+const AdminSchema = new mongoose.Schema({
+    pseudo: { type: String, required: true, unique: true },
+    password: { type: String, required: true }
+});
+
+const Admin = mongoose.model("Admin", AdminSchema);
+
+// Création d'un compte admin par défaut
+async function createAdmin() {
+    const existingAdmin = await Admin.findOne({ pseudo: "admin" });
+    if (!existingAdmin) {
+        const hashedPassword = await bcrypt.hash("monmotdepasse123", 10);
+        await new Admin({ pseudo: "admin", password: hashedPassword }).save();
+        console.log("✅ Compte admin créé avec succès !");
+    } else {
+        console.log("🔹 L'admin existe déjà.");
+    }
+}
+
+// Exécuter la fonction au démarrage
+createAdmin();
