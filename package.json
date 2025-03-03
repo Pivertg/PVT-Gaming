@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Ajout du backend"
+git branch -M main
+git remote add origin https://github.com/tonpseudo/tonrepo.git
+git push -u origin main
