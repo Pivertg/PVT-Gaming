@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier - PVT|Gaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming</div>
+
+        <div class="menu-container">
+            <span class="menu-icon">☰</span>
+            <nav class="dropdown-menu">
+                <ul>
+                    <li><a href="index.html">🏠 Accueil</a></li>
+                    <li><a href="roster.html">📋 Rosters</a></li>
+                    <li><a href="#" id="open-login" class="btn-connexion">Connexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Calendrier des Matchs</h1>
+        <p>Prochains événements et compétitions.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PVT|Gaming - Tous droits réservés</p>
+    </footer>
+
+    <!-- Inclusion du fichier de connexion -->
+    <div id="login-container"></div>
+
+    <!-- Scripts -->
+    <script src="menu.js"></script>
+    <script src="login.js"></script>
+    <script>
+        fetch("login.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("login-container").innerHTML = data;
+            });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - PVT|Gaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming</div>
+    </header>
+
+    <main class="inscription-container">
+        <div class="inscription-box">
+            <h1>📝 Inscription</h1>
+            <form id="inscription-form">
+                <div class="input-group">
+                    <label for="pseudo">👤 Pseudo</label>
+                    <input type="text" id="pseudo" placeholder="Entrez votre pseudo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="id-brawlstars">🎮 ID Brawl Stars</label>
+                    <input type="text" id="id-brawlstars" placeholder="Entrez votre ID" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="roster">📋 Sélectionnez un roster</label>
+                    <select id="roster" required>
+                        <option value="">-- Choisissez un roster --</option>
+                        <option value="roster1">Roster 1</option>
+                        <option value="roster2">Roster 2</option>
+                        <option value="roster3">Roster 3</option>
+                        <option value="roster4">Roster 4</option>
+                        <option value="roster5">Roster 5</option>
+                        <option value="roster6">Roster 6</option>
+                        <option value="roster7">Roster 7</option>
+                        <option value="roster8">Roster 8</option>
+                        <option value="roster9">Roster 9</option>
+                        <option value="roster10">Roster 10</option>
+                        <option value="roster11">Roster 11</option>
+                        <option value="roster12">Roster 12</option>
+                        <option value="roster13">Roster 13</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">✅ S'inscrire</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PVT|Gaming - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("inscription-form");
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const pseudo = document.getElementById("pseudo").value.trim();
+                const idBrawlStars = document.getElementById("id-brawlstars").value.trim();
+                const trophies = document.getElementById("trophies").value.trim();
+                const image = document.getElementById("image").value.trim() || "default-avatar.png";
+                const rosterKey = document.getElementById("roster").value;
+
+                // Vérification des champs
+                if (!pseudo || !idBrawlStars || !trophies || !rosterKey) {
+                    alert("🚨 Veuillez remplir tous les champs obligatoires !");
+                    return;
+                }
+
+                let savedRosters = JSON.parse(localStorage.getItem("rosters")) || {};
+                if (!savedRosters[rosterKey]) savedRosters[rosterKey] = [];
+
+                savedRosters[rosterKey].push({
+                    pseudo: pseudo,
+                    id: idBrawlStars,
+                    trophies: parseInt(trophies),
+                    image: image
+                });
+
+                localStorage.setItem("rosters", JSON.stringify(savedRosters));
+
+                alert("✅ Inscription réussie !");
+                window.location.href = "roster.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

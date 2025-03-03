@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Privé - PVT|Gaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming</div>
+        <div class="menu-container">
+            <span class="menu-icon">☰</span>
+            <nav class="dropdown-menu">
+                <ul>
+                    <li><a href="index.html">🏠 Accueil</a></li>
+                    <li><a href="rosters.html">📋 Rosters</a></li>
+                    <li><a href="#" id="logout-btn">🚪 Déconnexion</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h1>Bienvenue dans l’espace privé</h1>
+        <p>Tu es maintenant connecté.</p>
+        <button id="logout-btn" class="btn">Déconnexion</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PVT|Gaming - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Vérification de l'état de connexion
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "index.html"; // Redirige si pas connecté
+        }
+
+        // Déconnexion
+        document.getElementById("logout-btn").addEventListener("click", function () {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "index.html";
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - PVT|Gaming</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming</div>
+        <div class="menu-icon" id="menu-icon">⋮</div>
+        <nav id="dropdown-menu" class="hidden">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="rosters.html">Rosters</a></li>
+                <li><a href="calendar.html">Calendrier</a></li>
+                <li><a href="logout.html">Déconnexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="news">
+            <h2>Fil d'actualité</h2>
+            <div class="news-list">
+                <p>[Admin] Nouveau tournoi annoncé !</p>
+                <p>[Admin] Mise à jour du classement</p>
+            </div>
+        </section>
+
+        <section class="chat">
+            <h2>Chat</h2>
+            <div class="chat-box" id="chat-box"></div>
+            <input type="text" id="chat-input" placeholder="Écrire un message...">
+            <button id="send-message">Envoyer</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PVT|Gaming - Tous droits réservés</p>
+    </footer>
+
+</body>
+</html>
