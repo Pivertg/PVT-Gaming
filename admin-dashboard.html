@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gestion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming - Admin</div>
+        <button id="logout-btn">🚪 Déconnexion</button>
+    </header>
+
+    <main class="admin-container">
+        <h1>📋 Liste des Joueurs</h1>
+        <table id="players-table">
+            <thead>
+                <tr>
+                    <th>Pseudo</th>
+                    <th>ID Brawl Stars</th>
+                    <th>Trophées</th>
+                    <th>Roster</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <script>
+        async function loadPlayers() {
+            const token = localStorage.getItem("adminToken");
+            if (!token) {
+                window.location.href = "admin.html";
+                return;
+            }
+
+            const response = await fetch("http://localhost:3000/api/admin/joueurs", {
+                headers: { "Authorization": token }
+            });
+
+            const players = await response.json();
+            const tableBody = document.querySelector("#players-table tbody");
+            tableBody.innerHTML = "";
+
+            players.forEach(player => {
+                const row = `<tr>
+                    <td>${player.pseudo}</td>
+                    <td>${player.idBrawlStars}</td>
+                    <td>${player.trophies}</td>
+                    <td>${player.roster}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        document.getElementById("logout-btn").addEventListener("click", () => {
+            localStorage.removeItem("adminToken");
+            window.location.href = "admin.html";
+        });
+
+        loadPlayers();
+    </script>
+
+</body>
+</html>
