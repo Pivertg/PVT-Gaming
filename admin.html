@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">PVT|Gaming - Admin</div>
+    </header>
+
+    <main class="login-container">
+        <div class="login-box">
+            <h1>🔑 Connexion Admin</h1>
+            <form id="admin-login-form">
+                <div class="input-group">
+                    <label for="admin-pseudo">👤 Pseudo</label>
+                    <input type="text" id="admin-pseudo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="admin-password">🔒 Mot de passe</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+
+                <button type="submit" class="btn">🚀 Se connecter</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("admin-login-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const pseudo = document.getElementById("admin-pseudo").value.trim();
+            const password = document.getElementById("admin-password").value.trim();
+
+            try {
+                const response = await fetch("http://localhost:3000/api/admin/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ pseudo, password })
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("✅ Connexion réussie !");
+                    localStorage.setItem("adminToken", result.token);
+                    window.location.href = "admin-dashboard.html";
+                } else {
+                    alert("❌ " + result.error);
+                }
+            } catch (error) {
+                alert("❌ Erreur de connexion au serveur !");
+            }
+        });
+    </script>
+
+</body>
+</html>
