@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const newsList = document.getElementById("news-list");
 
+    // Mode "À venir..." tant que l'accès admin n'est pas dispo
     const news = [
-        { date: "03/03/2025", content: "🏆 Nouvelle victoire en tournoi ! Félicitations à l'équipe !" },
-        { date: "02/03/2025", content: "📢 Scrim contre Team XYZ prévu ce vendredi !" },
-        { date: "01/03/2025", content: "🎯 Le recrutement pour le roster Beta est ouvert !" }
+        { date: "🚧", content: "🔜 À venir..." }
     ];
 
     newsList.innerHTML = "";

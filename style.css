@@ -294,7 +294,7 @@ main {
 
 /* === Correction du pied de page (footer) === */
 footer {
-    text-align: center;
+    text-align: justify;
     padding: 10px;
     background-color: #1a1a1a;
     color: white;
@@ -401,4 +401,40 @@ footer {
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.social-links {
+    text-align: center;
+    background-color: #1a1a1a;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 2px solid #27e5a2;
+}
+
+.social-links h3 {
+    color: #27e5a2;
+    margin-bottom: 10px;
+}
+
+.social-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline-block;
+    margin: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    background-color: #27e5a2;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background-color: #1cc28b;
 }
