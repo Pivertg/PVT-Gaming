@@ -4,19 +4,12 @@
   "description": "",
   "main": "auth.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "bcryptjs": "^3.0.2",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "jsonwebtoken": "^9.0.2",
-    "socket.io": "^4.8.1",
+    "cloudworker-router": "^4.1.5",
     "wrangler": "^3.114.0"
   }
 }
