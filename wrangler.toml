@@ -1,3 +1,4 @@
 name = "worker"
 main = "./server.js"
+compatibility_flags = [ "nodejs_compat" ]
 compatibility_date = "2025-03-07"
