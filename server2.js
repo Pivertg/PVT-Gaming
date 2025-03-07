@@ -1,4 +1,4 @@
-require("dotenv").config(); // Charger les variables d'environnement
+// require("dotenv").config(); // Charger les variables d'environnement
 
 const Router = require("cloudworker-router");
 // const http = require("http");
