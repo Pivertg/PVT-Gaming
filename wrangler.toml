@@ -1,4 +1,4 @@
 name = "pvtgaming"
-main = "./server2.js"
+main = "./server2.ts"
 # compatibility_flags = [ "nodejs_compat" ]
 compatibility_date = "2025-03-07"
