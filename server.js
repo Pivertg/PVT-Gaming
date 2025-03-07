@@ -150,6 +150,6 @@ io.on("connection", (socket) => {
 });
 
 // 📌 Démarrage du serveur
-server.listen(3000, () => {
-    console.log("🚀 Serveur en écoute sur http://localhost:3000");
+server.listen(80, () => {
+    console.log("🚀 Serveur en écoute sur http://localhost:80");
 });
